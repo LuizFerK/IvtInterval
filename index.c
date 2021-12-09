@@ -1,14 +1,17 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <math.h>
+#include <locale.h>
 
 int main() {
+  setlocale(LC_ALL, "Portuguese_Brasil");
+  
   float x, y, e, distance, center, tmp;
   e = 2.718282;
 
   float ivt(float z) {
     return pow(e, -z) - 2 * pow(z, 2) + 4;
-  };
+  }
 
   bool isOpposite(float cond1, float cond2) {
     if ((cond1 <= 0 && cond2 >= 0) || (cond1 >= 0 && cond2 <= 0)) {
@@ -19,7 +22,7 @@ int main() {
   }
   
   printf("Digite os valores do intervalo:\n");
-  scanf("%f %f", &x, &y);
+  scanf("%f %f*c", &x, &y);
 
   if (x > y) {
     tmp = x;
